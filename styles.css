@@ -1,0 +1,186 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+}
+
+ul,
+li {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+nav a {
+    cursor: pointer;
+}
+
+main {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.ip-tracker-section .ip-container {
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    top: 100px;
+    width: 100%;
+}
+
+.ip-tracker-section .pattern-bg-img {
+    background: url(./assets/pattern-bg-desktop.png) no-repeat;
+    width: 100%;
+    height: 280px;
+}
+
+.ip-tracker-section h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-group .submit-btn {
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: black;
+    padding: 8px 12px;
+    color: #fff;
+}
+
+.inline-input-btn {
+    display: flex;
+}
+
+.inline-input-btn input {
+    min-width: 300px;
+    outline: none;
+}
+
+.inline-input-btn input {
+    border-radius: 0;
+    border: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 8px 16px;
+}
+
+.validation-result {
+    color: white;
+}
+
+.error {
+    border: 2px solid red !important;
+}
+
+.ip-info {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+.ip-info>div {
+    flex: 1;
+}
+
+.ip-info .data-head {
+    text-transform: uppercase;
+    color: gray;
+    font-size: 12px;
+}
+
+.ip-info .data-item {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+button.close {
+    border: none;
+    background: none;
+}
+
+.f-24 {
+    font-size: 24px;
+}
+
+.history-link {
+    cursor: pointer;
+}
+
+.history-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    align-items: flex-start;
+}
+
+/* Add some basic styling for the toast container */
+#toast-container .toaster {
+    position: fixed;
+    top: 36px;
+    right: 36px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+#toast-container .toaster.error {
+    background-color: red;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .inline-input-btn input {
+        min-width: auto;
+        max-width: 90%;
+        outline: none;
+    }
+
+    .ip-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
