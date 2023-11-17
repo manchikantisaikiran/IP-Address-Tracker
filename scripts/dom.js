@@ -6,6 +6,7 @@ const mapIframeContainerDom = document.querySelector('#mapIframeCt');
 const historyLinkRef = document.querySelector('#history-link');
 const historyModalBodyRef = document.querySelector('#history-modal-body');
 const submitBtn = document.querySelector('#submit-btn');
+const loaderOverlay = document.querySelector('#loader-overlay');
 
 // when clicked on submit button to fetch ip results
 submitBtn.addEventListener('click', (event) => {
@@ -40,6 +41,7 @@ historyLinkRef.addEventListener('click', (event) => {
             historyLink.setAttribute('data-dismiss', 'modal')
             historyLink.addEventListener('click', (event) => {
                 inputEleDom.value = key;
+                inputEleDom.dispatchEvent(new Event('input'));
                 submitBtn.click();
             })
             historyModalBodyRef.appendChild(historyLink);

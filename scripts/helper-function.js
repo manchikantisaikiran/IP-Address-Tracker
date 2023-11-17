@@ -98,7 +98,9 @@ async function fetchIpData(queryParams, inputValue) {
     }
 
     try {
+        loaderOverlay.classList.remove('d-none');
         const response = await fetch(geoIpBaseUrl + queryParams);
+        loaderOverlay.classList.add('d-none');
         if (!response.ok) {
             throw new Error(`${response.statusText}`);
         }
