@@ -12,11 +12,12 @@ const loaderOverlay = document.querySelector('#loader-overlay');
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
     inputEleDom.value = inputEleDom.value.trim()
-    const value = inputEleDom.value;
+    let value = inputEleDom.value;
     inputEleDom.classList.remove('error');
     if (ipRegex.test(value)) {
         fetchIpData(`ipAddress=${value}`, value);
     } else if (domainRegex.test(value)) {
+        value = value.replace(/^https?:\/\//, '');
         fetchIpData(`domain=${value}`, value);
     } else {
         validationResult.textContent = "Please enter a valid IP address or domain.";
@@ -34,17 +35,33 @@ historyLinkRef.addEventListener('click', (event) => {
 
     if (historyData && historyData.length) {
         historyData.forEach((obj) => {
+            const cardCt = document.createElement('div');
+            cardCt.classList.add('card');
+
+            const cardContent = document.createElement('div');
+            cardCt.classList.add('card-content');
+
+            cardCt.appendChild(cardContent);
+
+            const cardDesc = document.createElement('div');
+            cardCt.classList.add('card-description');
+
+            cardContent.appendChild(cardDesc);
+
             const historyLink = document.createElement('a');
-            historyLink.classList.add('history-link');
+            historyLink.classList.add('card-link');
+            cardContent.appendChild(historyLink);
+
             const [key, value] = Object.entries(obj)[0];
-            historyLink.textContent = key;
+            cardDesc.textContent = key;
+            historyLink.textContent = 'Get Current IP details';
             historyLink.setAttribute('data-dismiss', 'modal')
             historyLink.addEventListener('click', (event) => {
                 inputEleDom.value = key;
                 inputEleDom.dispatchEvent(new Event('input'));
                 submitBtn.click();
             })
-            historyModalBodyRef.appendChild(historyLink);
+            historyModalBodyRef.appendChild(cardCt);
         })
     }
 })

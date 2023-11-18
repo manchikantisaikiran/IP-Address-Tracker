@@ -67,24 +67,19 @@ function renderMap(latLng) {
 
 function showToast(text, className) {
     // Get the toast container
-    let toastContainer = document.getElementById('toast-container');
+    let toastContainer = document.getElementById('toaster-container');
+    let toastHeading = document.getElementById('toaster-heading');
+    let toastMessage = document.getElementById('toaster-message');
 
-    // Create a new toast element
-    let toast = document.createElement('div');
-    toast.className = `toaster  ${className}`;
-    toast.textContent = text;
-
-    // Append the toast to the container
-    toastContainer.appendChild(toast);
+    toastHeading.textContent = 'Error';
+    toastMessage.textContent = text;
 
     // Display the toast
-    toastContainer.style.display = 'block';
+    toastContainer.style.opacity = '1';
 
     // Hide the toast after a delay (e.g., 3 seconds)
     setTimeout(function () {
-        toastContainer.style.display = 'none';
-        // Remove the toast element from the container
-        toastContainer.removeChild(toast);
+        toastContainer.style.opacity = '0';
     }, 3000);
 }
 
