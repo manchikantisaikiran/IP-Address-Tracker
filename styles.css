@@ -48,11 +48,16 @@ main {
     margin: auto;
 }
 
+.ip-tracker-section {
+    width: 100%;
+    position: relative;
+}
+
 .ip-tracker-section .ip-container {
     position: absolute;
     z-index: 1000;
     text-align: center;
-    top: 100px;
+    top: 50px;
     width: 100%;
 }
 
